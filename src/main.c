@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/06/21 14:47:29 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/06/21 18:34:03 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	main(int argc, char **argv)
 
 // Handle both cases of input, whether a variable number of command line arguments, or as a string
 	// If the input of numbers is as a string, call "split()" to split the substrings (beware leaks !!)
-	if (argc == 2 && ft_isdigit(argv[1]) == 0)
-		return (ft_printf("Error\n"));
+	if (argc == 2)
+	
 	return (0);
 }	
 
