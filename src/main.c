@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pseudo_code.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/06/20 16:51:58 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/06/21 14:47:29 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int	main(int argc, char **argv)
 // Handle input count errors. Argument count must be 2 or more, and the second input must not be empty
 	// If input errors, return error
 	if (argc != 2 || argv[1] == "")
-		return(ft_printf("Error\n"));
+		return(0);
 
 // Handle both cases of input, whether a variable number of command line arguments, or as a string
 	// If the input of numbers is as a string, call "split()" to split the substrings (beware leaks !!)
-	
-}
+	if (argc == 2 && ft_isdigit(argv[1]) == 0)
+		return (ft_printf("Error\n"));
+	return (0);
+}	
 
-// Handle both cases of input, whether a variable number of command line arguments, or as a string
-	// If the input of numbers is as a string, call "split()" to split the substrings (beware leaks !!)
 
 // Initialize stack 'a' by appending each input number as a node to stack 'a'
 	// Handle integer overflow, duplicates, and syntax errors, e.g. input must only contain digits or '-' '+' signs

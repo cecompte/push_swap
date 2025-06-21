@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/20 15:11:01 by cecompte          #+#    #+#             */
-/*   Updated: 2025/06/20 16:42:30 by cecompte         ###   ########.fr       */
+/*   Created: 2025/05/07 12:00:05 by cecompte          #+#    #+#             */
+/*   Updated: 2025/05/12 11:38:41 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	node	*stack_a;
-	node	*stack_b;
-
-	stack_a = NULL;
-	stack_b = NULL;
-
+	del(lst->content);
+	free(lst);
 }
-
-
