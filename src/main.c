@@ -6,34 +6,49 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/06/21 18:34:03 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/06/29 20:04:17 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int	main(int argc, char **argv)
 {
 // Declare pointers to two data structures / linked lists, one for stack 'a' and another for 'b'
 	// Set both pointers to NULL to avoid undefined behavior and indicate we're starting with empty stacks
 	
-	node	*stack_a;
-	node	*stack_b;
+	t_node	*stack_a;
+	char	**tmp;
 
 	stack_a = NULL;
-	stack_b = NULL;
 // Handle input count errors. Argument count must be 2 or more, and the second input must not be empty
 	// If input errors, return error
-	if (argc != 2 || argv[1] == "")
+	if (argc < 2)
+		return(0);
+	if (!argv[1])
 		return(0);
 
 // Handle both cases of input, whether a variable number of command line arguments, or as a string
 	// If the input of numbers is as a string, call "split()" to split the substrings (beware leaks !!)
 	if (argc == 2)
-	
+	{
+		tmp = split(argv[1]);
+		if (!tmp)
+			return(ft_printf("Error\n"));
+		stack_a = initialize_stack(argc, tmp);
+	}
+	else
+		stack_a = initialize_stack(argc, argv);
+	//if (!stack_a)
+		//lstclear(&stack_a, free);
+	while (stack_a)
+	{
+		ft_printf("%d\n",stack_a->number);
+		stack_a = stack_a->next;
+	}
 	return (0);
 }	
-
 
 // Initialize stack 'a' by appending each input number as a node to stack 'a'
 	// Handle integer overflow, duplicates, and syntax errors, e.g. input must only contain digits or '-' '+' signs

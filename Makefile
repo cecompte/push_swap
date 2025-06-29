@@ -1,11 +1,13 @@
-CC				= cc
-CFLAGS			= -Wall -Wextra -Werror -MMD -MP
+CC				= gcc
+CFLAGS			= -g3 -Wall -Wextra -Werror -MMD -MP
 INCLUDES		= -Ilibft -Iincludes
 NAME			= push_swap
 
 # Sources
 SRC_PATH		= src/
-SRC				= main.c
+SRC				= main.c \
+					initialize_stack.c \
+					utils/push_swap_utils.c 
 SOURCES			= $(addprefix $(SRC_PATH), $(SRC))
 
 # Objects
@@ -42,8 +44,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c | $(OBJ_PATH)
 
 $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
-	@mkdir $(OBJ_PATH)fill_stack/
-	@mkdir $(OBJ_PATH)operations/
+	@mkdir $(OBJ_PATH)utils
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR) all --no-print-directory
