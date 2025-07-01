@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 19:49:36 by cecompte          #+#    #+#             */
-/*   Updated: 2025/06/29 20:08:06 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:26:34 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,22 @@ static int	check_valid_nb(char *str)
 	return (1);
 }
 
-t_node	*initialize_stack(int argc, char **argv)
+static int	no_duplicates(int num, t_node *stack_a)
 {
-	t_node	*stack_a;
+	t_node	*tmp;
+
+	tmp = stack_a;
+	while (tmp)
+	{
+		if (tmp->number == num)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+/*
+t_node	*create_stack(int argc, char **argv, t_node **stack_a)
+{
 	t_node	*element;
 	int		i;
 	int		number;
@@ -42,23 +55,41 @@ t_node	*initialize_stack(int argc, char **argv)
 	if (check_valid_nb(argv[i]))
 	{
 		number = ft_atoi(argv[i]);
-		stack_a = lstnew(number);
+		element = lstnew(number);
 		if (!stack_a)
 			return (NULL);
 	}
-	while (argv[++i])
+	else
+		return (ft_printf("Not valid number\n"), NULL);\
+	return (stack_a);
+}
+*/
+t_node	*fill_stack(int argc, char **argv)
+{
+	t_node	*head;
+	t_node	*current;
+	int		i;
+	int		number;
+	
+	i = 1;
+	if (argc == 2)
+		i = 0;
+	while (argv[i])
 	{
 		if (check_valid_nb(argv[i]))
 		{
-			number = ft_atoi(argv[i]);
-			// if no duplicate
-			element = lstnew(number);
-			if (!element)
+			number = ft_atoi(argv[i++]);
+			if (!no_duplicates(number, head))
+				return (ft_printf("Duplicates\n"), NULL);
+			current = lstnew(number);
+			if (!current)
 				return (NULL);
-			lstadd_back(&stack_a, element); 
+			if (!head)
+				head = current;
+			lstadd_back(&head, current);
 		}
 		else
-			return (NULL);
+			return (ft_printf("Not valid number\n"), NULL);
 	}
-	return (stack_a);
+	return (head);
 }
