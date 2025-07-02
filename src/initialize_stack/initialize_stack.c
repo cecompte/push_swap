@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 19:49:36 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/02 11:46:26 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/02 12:20:41 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static t_node	*create_stack(int i, char **argv)
 		return (ft_printf("Not valid number\n"), NULL);\
 	return (head);
 }
-t_node	*fill_stack(int i, char **argv)
+static t_node	*fill_stack(int i, char **argv)
 {
 	t_node	*head;
 	t_node	*current;
@@ -84,4 +84,39 @@ t_node	*fill_stack(int i, char **argv)
 			return (ft_printf("Not valid number\n"), NULL);
 	}
 	return (head);
+}
+t_node	*init_stack(int argc, char **argv)
+{
+	t_node	*stack_a;
+	char	**tmp;
+	
+	if (argc < 2)
+		return(NULL);
+	if (!argv[1])
+		return(NULL);
+	if (argc == 2)
+	{
+		tmp = split(argv[1]);
+		if (!tmp)
+			return (NULL);
+		stack_a = fill_stack(0, tmp);
+		free (tmp);
+	}
+	else
+		stack_a = fill_stack(1, argv);
+	return (stack_a);
+}
+int	is_sorted(t_node *head)
+{
+	t_node	*current;
+	
+	current = head;
+	while (current->next)
+	{
+		if (current->number < current->next->number)
+			current = current->next;
+		else
+			return (0);
+	}
+	return (1);
 }

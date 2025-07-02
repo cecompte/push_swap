@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/02 11:35:52 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:53:24 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,27 @@ typedef struct s_node
 }	t_node;
 
 char	**split(char *str);
-t_node	*fill_stack(int argc, char **argv);
+t_node	*init_stack(int argc, char **argv);
+int		is_sorted(t_node *head);
+
+//list_utils
 t_node	*lstnew(int number);
 void	lstadd_back(t_node **lst, t_node *new);
 void	lstadd_front(t_node **lst, t_node *new);
 t_node	*lstlast(t_node *lst);
 void	lstclear(t_node **lst);
+
+//operations
+void	sa(t_node *stack_a);
+void	sb(t_node *stack_a);
+void	ss(t_node *stack_a, t_node *stack_b);
+int		pa(t_node **stack_a, t_node **stack_b);
+int		pb(t_node **stack_b, t_node **stack_a);
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
+void	rr(t_node **stack_a, t_node **stack_b);
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
+void	rrr(t_node **stack_a, t_node **stack_b);
 
 #endif
