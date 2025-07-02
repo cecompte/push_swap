@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/01 17:26:19 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:42:51 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ int	main(int argc, char **argv)
 		if (!tmp)
 			return(ft_printf("Error\n"));
 		
-		stack_a = fill_stack(argc, tmp);
+		stack_a = fill_stack(0, tmp);
 		free (tmp);
 	}
 	else
-		stack_a = fill_stack(argc, argv);
+		stack_a = fill_stack(1, argv);
 	if (!stack_a)
-		lstclear(stack_a); // + Error message
+		lstclear(&stack_a); // + Error message
 	while (stack_a)
 	{
 		ft_printf("%d\n", stack_a->number);

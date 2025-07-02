@@ -6,8 +6,9 @@ NAME			= push_swap
 # Sources
 SRC_PATH		= src/
 SRC				= main.c \
-					initialize_stack.c \
-					utils/push_swap_utils.c 
+					initialize_stack/initialize_stack.c \
+					utils/lst_utils.c \
+					utils/other_utils.c 
 SOURCES			= $(addprefix $(SRC_PATH), $(SRC))
 
 # Objects
@@ -44,6 +45,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c | $(OBJ_PATH)
 
 $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
+	@mkdir $(OBJ_PATH)initialize_stack
 	@mkdir $(OBJ_PATH)utils
 
 $(LIBFT):

@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 19:49:36 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/01 17:26:34 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:46:26 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static int	check_valid_nb(char *str)
 	return (1);
 }
 
-static int	no_duplicates(int num, t_node *stack_a)
+static int	no_duplicates(int num, t_node **head)
 {
 	t_node	*tmp;
-
-	tmp = stack_a;
+	
+	tmp = *head;
 	while (tmp)
 	{
 		if (tmp->number == num)
@@ -41,51 +41,43 @@ static int	no_duplicates(int num, t_node *stack_a)
 	}
 	return (1);
 }
-/*
-t_node	*create_stack(int argc, char **argv, t_node **stack_a)
+
+static t_node	*create_stack(int i, char **argv)
 {
-	t_node	*element;
-	int		i;
+	t_node	*head;
 	int		number;
 	
-	if (argc == 2)
-		i = 0;
-	else
-		i = 1;
 	if (check_valid_nb(argv[i]))
 	{
 		number = ft_atoi(argv[i]);
-		element = lstnew(number);
-		if (!stack_a)
+		head = lstnew(number);
+		if (!head)
 			return (NULL);
 	}
 	else
 		return (ft_printf("Not valid number\n"), NULL);\
-	return (stack_a);
+	return (head);
 }
-*/
-t_node	*fill_stack(int argc, char **argv)
+t_node	*fill_stack(int i, char **argv)
 {
 	t_node	*head;
 	t_node	*current;
-	int		i;
 	int		number;
 	
-	i = 1;
-	if (argc == 2)
-		i = 0;
+	head = create_stack(i, argv);
+	if (!head)
+		return (NULL);
+	i++;
 	while (argv[i])
 	{
 		if (check_valid_nb(argv[i]))
 		{
 			number = ft_atoi(argv[i++]);
-			if (!no_duplicates(number, head))
+			if (!no_duplicates(number, &head))
 				return (ft_printf("Duplicates\n"), NULL);
 			current = lstnew(number);
 			if (!current)
 				return (NULL);
-			if (!head)
-				head = current;
 			lstadd_back(&head, current);
 		}
 		else
