@@ -6,13 +6,13 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 11:03:13 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:29:05 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_stack(t_node *stack)
+void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
@@ -32,9 +32,14 @@ int	main(int argc, char **argv)
 	stack_a = init_stack(argc, argv);
 	if (!stack_a)
 		return (lstclear(&stack_a), ft_printf("Error\n"));
-	sa(stack_a);
-	pb(&stack_b, &stack_a);
-	rra(&stack_a);
+	if (is_sorted(&stack_a))
+		return (0);
+	if (count_nodes(stack_a) == 2)
+		sa(stack_a);
+	if (count_nodes(stack_a) == 3)
+		sort_three(&stack_a);
+	if (count_nodes(stack_a) == 5)
+		sort_five(&stack_a, &stack_b);
 	ft_printf("stack_a =\n");
 	print_stack(stack_a);
 	ft_printf("stack_b =\n");

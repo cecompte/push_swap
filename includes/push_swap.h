@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 11:06:15 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 17:13:22 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_node
 char	**ps_split(char *str);
 int		ps_atoi(const char *nptr);
 t_node	*init_stack(int argc, char **argv);
-int		is_sorted(t_node *head);
+void	print_stack(t_node *stack);
 
 //list_utils
 t_node	*lstnew(int number);
@@ -47,5 +47,19 @@ void	rr(t_node **stack_a, t_node **stack_b);
 void	rra(t_node **stack_a);
 void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
+
+//algo_utils
+int		is_sorted(t_node **stack);
+int		count_nodes(t_node	*stack);
+int		find_max(t_node	**stack);
+
+//simple ps
+int		find_target(int number, t_node *stack);
+void	put_target_top(int position, t_node **stack);
+
+
+//algo
+void	sort_three(t_node **stack_a);
+void	sort_five(t_node **stack_a, t_node	**stack_b);
 
 #endif

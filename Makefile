@@ -7,12 +7,14 @@ NAME			= push_swap
 SRC_PATH		= src/
 SRC				= main.c \
 					initialize_stack/initialize_stack.c \
+					initialize_stack/lst_utils.c \
+					initialize_stack/other_utils.c \
 					operations/push.c \
 					operations/swap.c \
 					operations/rotate.c \
 					operations/rev_rotate.c \
-					utils/lst_utils.c \
-					utils/other_utils.c 
+					algo/algo_utils.c \
+					algo/simple_ps.c
 SOURCES			= $(addprefix $(SRC_PATH), $(SRC))
 
 # Objects
@@ -51,7 +53,7 @@ $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
 	@mkdir $(OBJ_PATH)initialize_stack
 	@mkdir $(OBJ_PATH)operations
-	@mkdir $(OBJ_PATH)utils
+	@mkdir $(OBJ_PATH)algo
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR) all --no-print-directory
