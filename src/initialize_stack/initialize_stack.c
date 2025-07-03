@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 19:49:36 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/02 12:20:41 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:06:36 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static t_node	*create_stack(int i, char **argv)
 	
 	if (check_valid_nb(argv[i]))
 	{
-		number = ft_atoi(argv[i]);
+		number = ps_atoi(argv[i]);
 		head = lstnew(number);
 		if (!head)
 			return (NULL);
@@ -72,7 +72,7 @@ static t_node	*fill_stack(int i, char **argv)
 	{
 		if (check_valid_nb(argv[i]))
 		{
-			number = ft_atoi(argv[i++]);
+			number = ps_atoi(argv[i++]);
 			if (!no_duplicates(number, &head))
 				return (ft_printf("Duplicates\n"), NULL);
 			current = lstnew(number);
@@ -96,7 +96,7 @@ t_node	*init_stack(int argc, char **argv)
 		return(NULL);
 	if (argc == 2)
 	{
-		tmp = split(argv[1]);
+		tmp = ps_split(argv[1]);
 		if (!tmp)
 			return (NULL);
 		stack_a = fill_stack(0, tmp);
