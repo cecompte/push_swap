@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 11:08:55 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 17:26:55 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 20:43:01 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	find_target(int number, t_node *stack)
 		position++;
 	}
 	if (!stack->next)
-		return (1); // non ! position du minimum !
+		return (find_min(&stack));
 	closest_max = stack->number;
 	target = position;
 	while (stack->next)

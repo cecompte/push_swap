@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 17:13:22 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 20:42:26 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 int		is_sorted(t_node **stack);
 int		count_nodes(t_node	*stack);
 int		find_max(t_node	**stack);
+int		find_min(t_node **stack);
 
 //simple ps
 int		find_target(int number, t_node *stack);

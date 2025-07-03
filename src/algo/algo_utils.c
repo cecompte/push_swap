@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:17:34 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 16:03:03 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 20:41:32 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,29 @@ int	find_max(t_node	**stack)
 		if (maximum < current->next->number)
 		{
 			maximum = current->next->number;
+			position = i;
+		}
+		current = current->next;
+	}
+	return (position);
+}
+int	find_min(t_node **stack)
+{
+	t_node	*current;
+	int		position;
+	int		i;
+	int		minimum;
+
+	current = *stack;
+	minimum = current->number;
+	i = 1;
+	position = 1;
+	while (current->next)
+	{
+		i++;
+		if (minimum > current->next->number)
+		{
+			minimum = current->next->number;
 			position = i;
 		}
 		current = current->next;
