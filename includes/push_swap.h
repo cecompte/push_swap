@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/02 17:53:24 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 10:55:09 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	lstclear(t_node **lst);
 void	sa(t_node *stack_a);
 void	sb(t_node *stack_a);
 void	ss(t_node *stack_a, t_node *stack_b);
-int		pa(t_node **stack_a, t_node **stack_b);
-int		pb(t_node **stack_b, t_node **stack_a);
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_b, t_node **stack_a);
 void	ra(t_node **stack_a);
 void	rb(t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);

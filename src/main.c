@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/02 17:46:50 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:03:13 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ int	main(int argc, char **argv)
 	stack_a = init_stack(argc, argv);
 	if (!stack_a)
 		return (lstclear(&stack_a), ft_printf("Error\n"));
-	// sa(stack_a);
-	if (pb(&stack_b, &stack_a) < 0)
-		return (ft_printf("Error"));
-	rrotate(&stack_a);
+	sa(stack_a);
+	pb(&stack_b, &stack_a);
+	rra(&stack_a);
 	ft_printf("stack_a =\n");
 	print_stack(stack_a);
 	ft_printf("stack_b =\n");
