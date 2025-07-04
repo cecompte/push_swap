@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/04 16:50:37 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:00:51 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	put_target_top(int position, t_node **stack);
 
 //algo
 void	sort_three(t_node **stack_a);
+void	sort_four(t_node **stack_a, t_node	**stack_b);
 void	sort_five(t_node **stack_a, t_node	**stack_b);
 
 #endif

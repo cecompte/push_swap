@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 11:08:55 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/04 17:01:53 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:00:03 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,38 +68,31 @@ void	put_target_top(int position, t_node **stack)
 		}
 	}
 }
-
+void	sort_four(t_node **stack_a, t_node	**stack_b)
+{
+	int	target;
+	
+	pb(stack_b, stack_a);
+	sort_three(stack_a);
+	target = find_target((*stack_b)->number, stack_a);
+	put_target_top(target, stack_a);
+	pa(stack_a, stack_b);
+	put_target_top(position_min(stack_a), stack_a);
+}
 void	sort_five(t_node **stack_a, t_node	**stack_b)
 {	
-	int	min;
 	int	target;
 
 	pb(stack_b, stack_a);
 	pb(stack_b, stack_a);
-/* 	ft_printf("sort stack_a :\n"); */
+	if (is_sorted(stack_b))
+		sb(*stack_b);
 	sort_three(stack_a);
-/* 	print_stack(*stack_a);
-	ft_printf("stack_b :\n");
-	print_stack(*stack_b); */
 	target = find_target((*stack_b)->number, stack_a);
-/* 	ft_printf("target = %d\n", target);
-	ft_printf("put target on top:\n"); */
 	put_target_top(target, stack_a);
-/* 	print_stack(*stack_a); */
 	pa(stack_a, stack_b);
-/* 	print_stack(*stack_a); */
 	target = find_target((*stack_b)->number, stack_a);
-/* 	ft_printf("target = %d\n", target);
-	ft_printf("put target on top:\n"); */
 	put_target_top(target, stack_a);
-/* 	print_stack(*stack_a); */
 	pa(stack_a, stack_b);
-/* 	print_stack(*stack_a); */
-	if (is_sorted(stack_a))
-		return;
-	min = position_min(stack_a);
-/* 	ft_printf("min = %d\n", min);
-	ft_printf("put min on top:\n"); */
-	put_target_top(min, stack_a);
-/* 	print_stack(*stack_a); */
+	put_target_top(position_min(stack_a), stack_a);
 }

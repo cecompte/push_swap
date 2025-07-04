@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/04 17:01:58 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:00:34 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int argc, char **argv)
 		sa(stack_a);
 	if (count_nodes(stack_a) == 3)
 		sort_three(&stack_a);
+	if (count_nodes(stack_a) == 4)
+		sort_four(&stack_a, &stack_b);
 	if (count_nodes(stack_a) == 5)
 		sort_five(&stack_a, &stack_b);
 /* 	ft_printf("stack_a =\n");
