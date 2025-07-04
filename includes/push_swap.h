@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 20:42:26 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/04 16:50:37 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 //algo_utils
 int		is_sorted(t_node **stack);
 int		count_nodes(t_node	*stack);
-int		find_max(t_node	**stack);
-int		find_min(t_node **stack);
+int		position_max(t_node	**stack);
+int		position_min(t_node **stack);
+int		nb_max(t_node **stack);
 
 //simple ps
-int		find_target(int number, t_node *stack);
+int		find_target(int number, t_node **stack);
 void	put_target_top(int position, t_node **stack);
 
 

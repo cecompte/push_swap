@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 16:29:05 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:01:58 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int	main(int argc, char **argv)
 		sort_three(&stack_a);
 	if (count_nodes(stack_a) == 5)
 		sort_five(&stack_a, &stack_b);
-	ft_printf("stack_a =\n");
+/* 	ft_printf("stack_a =\n");
 	print_stack(stack_a);
 	ft_printf("stack_b =\n");
-	print_stack(stack_b);
+	print_stack(stack_b); */
 	return (0);
-}	
+}
 
 // Initialize stack 'a' by appending each input number as a node to stack 'a'
 	// Handle integer overflow, duplicates, and syntax errors, e.g. input must only contain digits or '-' '+' signs
