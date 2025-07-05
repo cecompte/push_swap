@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 19:49:36 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 11:48:51 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:24:51 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static t_node	*fill_stack(int i, char **argv)
 	t_node	*head;
 	t_node	*current;
 	int		number;
+	
 	
 	head = create_stack(i, argv);
 	if (!head)

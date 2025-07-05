@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/04 18:00:34 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:31:18 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 		sort_four(&stack_a, &stack_b);
 	if (count_nodes(stack_a) == 5)
 		sort_five(&stack_a, &stack_b);
+	if (count_nodes(stack_a) > 5)
+		turk_algo(&stack_a, &stack_b);
 /* 	ft_printf("stack_a =\n");
 	print_stack(stack_a);
 	ft_printf("stack_b =\n");

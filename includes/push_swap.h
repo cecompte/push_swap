@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/04 18:00:51 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/05 17:30:44 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,18 @@ int		is_sorted(t_node **stack);
 int		count_nodes(t_node	*stack);
 int		position_max(t_node	**stack);
 int		position_min(t_node **stack);
-int		nb_max(t_node **stack);
+t_node	*find_node(int position, t_node **stack);
 
-//simple ps
-int		find_target(int number, t_node **stack);
+//find_targets
+int		find_target_max(int number, t_node **stack);
+int		find_target_min(int number, t_node **stack);
 void	put_target_top(int position, t_node **stack);
-
+int		push_cost(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
 
 //algo
 void	sort_three(t_node **stack_a);
 void	sort_four(t_node **stack_a, t_node	**stack_b);
 void	sort_five(t_node **stack_a, t_node	**stack_b);
+void	turk_algo(t_node **stack_a, t_node **stack_b);
 
 #endif
