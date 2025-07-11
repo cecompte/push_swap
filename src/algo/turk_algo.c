@@ -72,9 +72,9 @@ static int	count_rr(int position_a, int position_b, t_node **stack_a, t_node **s
 	if (ra && rb)
 	{
 		if (ra > rb)
-			rr = ra - rb;
+			rr = rb;
 		else
-			rr = rb - ra;
+			rr = ra;
 	}
 	else
 		rr = 0;
@@ -92,9 +92,9 @@ static int	count_rrr(int position_a, int position_b, t_node **stack_a, t_node **
 	if (rra && rrb)
 	{
 		if (rra > rrb)
-			rrr = rra - rrb;
+			rrr = rrb;
 		else
-			rrr = rrb - rra;
+			rrr = rra;
 	}
 	else
 		rrr = 0;
@@ -137,35 +137,19 @@ void	turk_algo(t_node **stack_a, t_node **stack_b)
 	
 	pb(stack_b, stack_a);
 	pb(stack_b, stack_a);
-	ft_printf("stack_a =\n");
-	print_stack(*stack_a);
-	ft_printf("stack_b =\n");
-	print_stack(*stack_b);
 	while (count_nodes(*stack_a) > 3)
 	{
 		cheapest_position = cheapest_push(stack_a, stack_b);
 		target_b = find_target_min(find_node(cheapest_position, stack_a)->number, stack_b);
 		push_node(cheapest_position, target_b, stack_a, stack_b);
 		pb(stack_b, stack_a);
-		ft_printf("stack_a =\n");
-		print_stack(*stack_a);
-		ft_printf("stack_b =\n");
-		print_stack(*stack_b);
 	}
 	sort_three(stack_a);
-	ft_printf("stack_a =\n");
-	print_stack(*stack_a);
-	ft_printf("stack_b =\n");
-	print_stack(*stack_b);
 	while (count_nodes(*stack_b) > 0)
 	{
 		target_a = find_target_max((*stack_b)->number, stack_a);
 		put_target_top(target_a, stack_a);
 		pa(stack_a, stack_b);
-		ft_printf("stack_a =\n");
-		print_stack(*stack_a);
-		ft_printf("stack_b =\n");
-		print_stack(*stack_b);
 	}
 	put_target_top(position_min(stack_a), stack_a);
 	ft_printf("stack_a =\n");
