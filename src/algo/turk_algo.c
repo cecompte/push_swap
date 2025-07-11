@@ -69,15 +69,10 @@ static int	count_rr(int position_a, int position_b, t_node **stack_a, t_node **s
 
 	ra = count_rotate(position_a, stack_a);
 	rb = count_rotate(position_b, stack_b);
-	if (ra && rb)
-	{
-		if (ra > rb)
-			rr = rb;
-		else
-			rr = ra;
-	}
+	if (ra > rb)
+		rr = rb;
 	else
-		rr = 0;
+		rr = ra;
 	return (rr);
 }
 
@@ -89,15 +84,10 @@ static int	count_rrr(int position_a, int position_b, t_node **stack_a, t_node **
 
 	rra = count_rev_rotate(position_a, stack_a);
 	rrb = count_rev_rotate(position_b, stack_b);
-	if (rra && rrb)
-	{
-		if (rra > rrb)
-			rrr = rrb;
-		else
-			rrr = rra;
-	}
+	if (rra > rrb)
+		rrr = rrb;
 	else
-		rrr = 0;
+		rrr = rra;
 	return (rrr);
 }
 static void	push_node(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
