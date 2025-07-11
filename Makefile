@@ -1,4 +1,4 @@
-CC				= gcc
+CC				= cc
 CFLAGS			= -g3 -Wall -Wextra -Werror -MMD -MP
 INCLUDES		= -Ilibft -Iincludes
 NAME			= push_swap
