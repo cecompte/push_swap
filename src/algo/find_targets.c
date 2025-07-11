@@ -84,34 +84,4 @@ void	put_target_top(int position, t_node **stack)
 		}
 	}
 }
-static int	push_cost(int position, t_node **stack)
-{
-	int	push_cost;
 
-	if (position > count_nodes(*stack) / 2)
-		push_cost = count_nodes(*stack) - position + 1;
-	else
-		push_cost = position - 1;
-	return (push_cost);
-}
-
-int	push_cost_total(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
-{
-	int		push_cost_a;
-	int		push_cost_b;
-	int		push_cost_total;
-
-	push_cost_a = push_cost(position_a, stack_a);
-	push_cost_b = push_cost(position_b, stack_b);
-	if ((position_a > count_nodes(*stack_a) / 2 && position_b > count_nodes(*stack_b) / 2) ||
-			(position_a <= count_nodes(*stack_a) / 2 &&  position_b <= count_nodes(*stack_b) / 2))
-		{
-			if (push_cost_a > push_cost_b)
-				push_cost_total = push_cost_a;
-			else
-				push_cost_total = push_cost_b;
-		}
-	else
-		push_cost_total = push_cost_a + push_cost_b;
-	return (push_cost_total);
-}

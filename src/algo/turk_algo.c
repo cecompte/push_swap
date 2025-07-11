@@ -23,15 +23,15 @@ static int	cheapest_push(t_node **stack_a, t_node **stack_b)
 	current = *stack_a;
 	position_a = 1;
 	cheapest_node = 1;
-	min_cost = push_cost_total(position_a, find_target_min(current->number, stack_b), stack_a, stack_b);
+	min_cost = push_cost(position_a, find_target_min(current->number, stack_b), stack_a, stack_b);
 	if (!min_cost)
 		return (1);
 	while (current)
 	{
 		position_b =  find_target_min(current->number, stack_b);
-		if (push_cost_total(position_a, position_b, stack_a, stack_b) < min_cost)
+		if (push_cost(position_a, position_b, stack_a, stack_b) < min_cost)
 		{
-			min_cost = push_cost_total(position_a, position_b, stack_a, stack_b);
+			min_cost = push_cost(position_a, position_b, stack_a, stack_b);
 			cheapest_node = position_a;
 		}
 		position_a++;
@@ -40,56 +40,6 @@ static int	cheapest_push(t_node **stack_a, t_node **stack_b)
 	return (cheapest_node);
 }
 
-static int	count_rotate(int position, t_node **stack)
-{
-	int	count;
-
-	if (position - 1 < count_nodes(*stack) - position + 1)
-		count = position - 1;
-	else
-		count = 0;
-	return (count);
-}
-static int	count_rev_rotate(int position, t_node **stack)
-{
-	int	count;
-
-	if (position - 1 >= count_nodes(*stack) - position + 1)
-		count = count_nodes(*stack) - position + 1;
-	else
-		count = 0;
-	return (count);
-}
-
-static int	count_rr(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
-{
-	int	ra;
-	int	rb;
-	int	rr;
-
-	ra = count_rotate(position_a, stack_a);
-	rb = count_rotate(position_b, stack_b);
-	if (ra > rb)
-		rr = rb;
-	else
-		rr = ra;
-	return (rr);
-}
-
-static int	count_rrr(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
-{
-	int	rra;
-	int	rrb;
-	int	rrr;
-
-	rra = count_rev_rotate(position_a, stack_a);
-	rrb = count_rev_rotate(position_b, stack_b);
-	if (rra > rrb)
-		rrr = rrb;
-	else
-		rrr = rra;
-	return (rrr);
-}
 static void	push_node(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
 {
 	int	nb_ra;

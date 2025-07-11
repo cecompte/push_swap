@@ -14,8 +14,9 @@ SRC				= main.c \
 					operations/rotate.c \
 					operations/rev_rotate.c \
 					algo/algo_utils.c \
+					algo/count_operations.c \
 					algo/find_targets.c \
-					algo/simple_ps.c \
+					algo/simple_algo.c \
 					algo/turk_algo.c
 SOURCES			= $(addprefix $(SRC_PATH), $(SRC))
 

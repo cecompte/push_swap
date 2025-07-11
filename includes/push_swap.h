@@ -59,7 +59,13 @@ t_node	*find_node(int position, t_node **stack);
 int		find_target_max(int number, t_node **stack);
 int		find_target_min(int number, t_node **stack);
 void	put_target_top(int position, t_node **stack);
-int		push_cost_total(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
+
+//count_operations
+int		count_rotate(int position, t_node **stack);
+int		count_rev_rotate(int position, t_node **stack);
+int		count_rr(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
+int		count_rrr(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
+int		push_cost(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
 
 //algo
 void	sort_three(t_node **stack_a);
