@@ -92,8 +92,4 @@ void	turk_algo(t_node **stack_a, t_node **stack_b)
 		pa(stack_a, stack_b);
 	}
 	put_target_top(position_min(stack_a), stack_a);
-	ft_printf("stack_a =\n");
-	print_stack(*stack_a);
-	ft_printf("stack_b =\n");
-	print_stack(*stack_b);
 }
