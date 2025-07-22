@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/05 17:31:18 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:21:46 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ int	main(int argc, char **argv)
 	t_node	*stack_a;
 	t_node	*stack_b;
 
+	if (argc == 1)
+		return (0);
 	stack_b = NULL;
+	if (check_valid_nb(argv[1]))
+		return (0);
 	stack_a = init_stack(argc, argv);
 	if (!stack_a)
 		return (lstclear(&stack_a), ft_printf("Error\n"));

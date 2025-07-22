@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 19:27:45 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/01 16:58:30 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:22:59 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,12 @@ void	lstclear(t_node **lst)
 
 	if (!lst || !*lst)
 		return ;
+	tmp = *lst;
 	while (*lst)
 	{
 		tmp = (*lst)->next;
 		free(*lst);
 		*lst = tmp;
 	}
-	free(*lst);
+	free(lst);
 }

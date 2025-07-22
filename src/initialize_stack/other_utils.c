@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:25:43 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/03 11:05:58 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/22 11:45:13 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	**ps_split(char *str)
 		i++;
 	}
 	tmp = ft_split(str, ' ');
-	
 	return (tmp);
 }
 

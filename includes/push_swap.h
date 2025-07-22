@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/05 17:30:44 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:10:39 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_node
 
 char	**ps_split(char *str);
 int		ps_atoi(const char *nptr);
+int		check_valid_nb(char *str);
 t_node	*init_stack(int argc, char **argv);
 void	print_stack(t_node *stack);
 
