@@ -1,39 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   clear_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 12:01:25 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/22 16:43:49 by cecompte         ###   ########.fr       */
+/*   Created: 2025/07/22 16:40:45 by cecompte          #+#    #+#             */
+/*   Updated: 2025/07/22 16:47:28 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_node **dest, t_node **source)
+void	lstclear(t_node **lst)
 {
-	t_node	*to_push;
 	t_node	*tmp;
 
-	if (!source)
+	if (!lst || !*lst)
 		return ;
-	tmp = (*source)->next;
-	to_push = *source;
-	to_push->next = *dest;
-	*dest = to_push;
-	*source = tmp;
+	tmp = *lst;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
+	}
 }
 
-void	pb(t_node **stack_b, t_node **stack_a)
+void	exit_error(t_node **stack)
 {
-	push(stack_b, stack_a);
-	ft_printf("pb\n");
+	lstclear(stack);
+	ft_printf("Error\n");
+	exit(1);
 }
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	free_tab(char **tab)
 {
-	push(stack_a, stack_b);
-	ft_printf("pa\n");
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free (tab);
 }

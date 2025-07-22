@@ -5,12 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 19:49:36 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/22 13:25:28 by cecompte         ###   ########.fr       */
+/*   Created: 2025/07/22 14:11:05 by cecompte          #+#    #+#             */
+/*   Updated: 2025/07/22 16:46:31 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	no_duplicates(int num, t_node **head)
+{
+	t_node	*tmp;
+
+	tmp = *head;
+	if (!tmp)
+		return (1);
+	while (tmp)
+	{
+		if (tmp->number == num)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
 
 int	check_valid_nb(char *str)
 {
@@ -28,83 +44,58 @@ int	check_valid_nb(char *str)
 	return (1);
 }
 
-static int	no_duplicates(int num, t_node **head)
+static t_node	*create_node(int number, t_node *next)
 {
-	t_node	*tmp;
-	
-	tmp = *head;
-	while (tmp)
-	{
-		if (tmp->number == num)
-			return (0);
-		tmp = tmp->next;
-	}
+	t_node	*element;
+
+	element = malloc(sizeof(t_node));
+	if (!element)
+		return (NULL);
+	element->number = number;
+	element->next = next;
+	return (element);
+}
+
+static int	add_node(char *str, t_node **stack)
+{
+	int	number;
+
+	if (!check_valid_nb(str))
+		return (0);
+	number = ps_atoi(str);
+	if (!no_duplicates(number, stack))
+		return (0);
+	*stack = create_node(number, *stack);
+	if (!*stack)
+		return (0);
 	return (1);
 }
 
-static t_node	*create_stack(int i, char **argv)
+t_node	*init_stack(t_node **stack, int argc, char **argv)
 {
-	t_node	*head;
-	int		number;
-	
-	if (check_valid_nb(argv[i]))
+	int		index;
+	int		i;
+	char	**tmp;
+
+	index = argc - 1;
+	while (index > 0)
 	{
-		number = ps_atoi(argv[i]);
-		head = lstnew(number);
-		if (!head)
-			return (NULL);
-	}
-	else
-		return (ft_printf("Not valid number\n"), NULL);
-	return (head);
-}
-static t_node	*fill_stack(int i, char **argv)
-{
-	t_node	*head;
-	t_node	*current;
-	int		number;
-	
-	head = create_stack(i, argv);
-	if (!head)
-		return (NULL);
-	i++;
-	while (argv[i])
-	{
-		if (check_valid_nb(argv[i]))
+		if (argc == 2)
 		{
-			number = ps_atoi(argv[i++]);
-			if (!no_duplicates(number, &head))
-				return (ft_printf("Duplicates\n"), NULL);
-			current = lstnew(number);
-			if (!current)
-				return (NULL);
-			lstadd_back(&head, current);
+			tmp = ps_split(argv[index]);
+			if (!tmp)
+				return (exit_error(stack), NULL);
+			i = ps_strlen(tmp) - 1;
+			while (i >= 0)
+			{
+				if (!add_node(tmp[i--], stack))
+					return (free_tab(tmp), exit_error(stack), NULL);
+			}
+			free_tab(tmp);
 		}
 		else
-			return (ft_printf("Not valid number\n"), NULL);
+			if (!add_node(argv[index--], stack))
+				return (exit_error(stack), NULL);
 	}
-	return (head);
-}
-t_node	*init_stack(int argc, char **argv)
-{
-	t_node	*stack_a;
-	char	**tmp;
-	int		i;
-	
-	if (!argv[1])
-		return (NULL);
-	if (argc == 2)
-	{
-		tmp = ps_split(argv[1]);
-		if (!tmp)
-			return (NULL);
-		stack_a = fill_stack(0, tmp);
-		i = 0;
-		while (tmp[i])
-			free(tmp[i++]);
-		free(tmp);
-	}
-	else
-		stack_a = fill_stack(1, argv);
-	return (stack_a);
+	return (*stack);
 }

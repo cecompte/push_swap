@@ -6,11 +6,24 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 17:00:13 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/04 16:50:00 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/22 16:45:22 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_node	*lstlast(t_node *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst)
+	{
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
+}
 
 static void	rotate(t_node **stack)
 {
@@ -18,7 +31,7 @@ static void	rotate(t_node **stack)
 	t_node	*head;
 
 	if (!(*stack)->next)
-		return;
+		return ;
 	head = *stack;
 	tmp = lstlast(*stack);
 	tmp->next = head;
@@ -27,6 +40,7 @@ static void	rotate(t_node **stack)
 	tmp->next = NULL;
 	*stack = head;
 }
+
 void	ra(t_node **stack_a)
 {
 	rotate(stack_a);
@@ -38,10 +52,10 @@ void	rb(t_node **stack_b)
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
+
 void	rr(t_node **stack_a, t_node **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
 	ft_printf("rr\n");
 }
-	

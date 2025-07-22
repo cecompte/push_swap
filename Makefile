@@ -7,8 +7,8 @@ NAME			= push_swap
 SRC_PATH		= src/
 SRC				= main.c \
 					initialize_stack/initialize_stack.c \
-					initialize_stack/lst_utils.c \
-					initialize_stack/other_utils.c \
+					initialize_stack/utils.c \
+					initialize_stack/clear_stack.c \
 					operations/push.c \
 					operations/swap.c \
 					operations/rotate.c \

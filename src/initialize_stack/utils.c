@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   other_utils.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:25:43 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/22 11:45:13 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/22 16:47:00 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ps_split(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == ' ' && str[i + 1] == ' ')
+		if (str[i] == ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			return (NULL);
 		i++;
 	}
@@ -52,4 +52,14 @@ int	ps_atoi(const char *nptr)
 		i++;
 	}
 	return (result * neg);
+}
+
+int	ps_strlen(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
 }

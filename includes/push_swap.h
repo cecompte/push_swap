@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/22 13:10:39 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/22 16:37:20 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,22 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
+//utils
 char	**ps_split(char *str);
 int		ps_atoi(const char *nptr);
+int		ps_strlen(char **tab);
+void	exit_error(t_node **stack);
+void	lstclear(t_node **lst);
+void	free_tab(char **tab);
+
+//init_stack
 int		check_valid_nb(char *str);
-t_node	*init_stack(int argc, char **argv);
+int		no_duplicates(int num, t_node **head);
+t_node	*init_stack(t_node **stack, int argc, char **argv);
 void	print_stack(t_node *stack);
 
-//list_utils
-t_node	*lstnew(int number);
-void	lstadd_back(t_node **lst, t_node *new);
-void	lstadd_front(t_node **lst, t_node *new);
-t_node	*lstlast(t_node *lst);
-void	lstclear(t_node **lst);
-
 //operations
+t_node	*lstlast(t_node *lst);
 void	sa(t_node *stack_a);
 void	sb(t_node *stack_a);
 void	ss(t_node *stack_a, t_node *stack_b);
