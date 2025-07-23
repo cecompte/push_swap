@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:04:48 by user              #+#    #+#             */
-/*   Updated: 2025/07/23 12:05:14 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:18:19 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,15 @@ int	count_rrr(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b)
 
 int	push_cost(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b)
 {
-	int	rotate;
-	int	rrotate;
-	int	cost;
+	t_operations	nb;
+	int				cost;
 
-	rotate = count_rotate(pos_a, stack_a) + count_rotate(pos_b, stack_b)
-		- count_rr(pos_a, pos_b, stack_a, stack_b);
-	rrotate = count_rrotate(pos_a, stack_a) + count_rrotate(pos_b, stack_b)
-		- count_rrr(pos_a, pos_b, stack_a, stack_b);
-	cost = rotate + rrotate;
+	nb.rr = count_rr(pos_a, pos_b, stack_a, stack_b);
+	nb.rrr = count_rrr(pos_a, pos_b, stack_a, stack_b);
+	nb.ra = count_rotate(pos_a, stack_a) - nb.rr;
+	nb.rb = count_rotate(pos_b, stack_b) - nb.rr;
+	nb.rra = count_rrotate(pos_a, stack_a) - nb.rrr;
+	nb.rrb = count_rrotate(pos_b, stack_b) - nb.rrr;
+	cost = nb.ra + nb.rb + nb.rr + nb.rra + nb.rrb + nb.rrr;
 	return (cost);
 }
