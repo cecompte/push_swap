@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/22 16:37:20 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:12:31 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ typedef struct s_node
 	int				number;
 	struct s_node	*next;
 }	t_node;
+
+typedef struct s_operations
+{
+	int		ra;
+	int		rb;
+	int		rra;
+	int		rrb;
+	int		rr;
+	int		rrr;
+}	t_operations;
 
 //utils
 char	**ps_split(char *str);
@@ -59,16 +69,16 @@ int		position_min(t_node **stack);
 t_node	*find_node(int position, t_node **stack);
 
 //find_targets
-int		find_target_max(int number, t_node **stack);
-int		find_target_min(int number, t_node **stack);
+int		target_max(int number, t_node **stack);
+int		target_min(int number, t_node **stack);
 void	put_target_top(int position, t_node **stack);
 
 //count_operations
 int		count_rotate(int position, t_node **stack);
-int		count_rev_rotate(int position, t_node **stack);
-int		count_rr(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
-int		count_rrr(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
-int		push_cost(int position_a, int position_b, t_node **stack_a, t_node **stack_b);
+int		count_rrotate(int position, t_node **stack);
+int		count_rr(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b);
+int		count_rrr(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b);
+int		push_cost(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b);
 
 //algo
 void	sort_three(t_node **stack_a);

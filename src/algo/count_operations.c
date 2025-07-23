@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   count_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:04:48 by user              #+#    #+#             */
-/*   Updated: 2025/07/16 18:04:51 by user             ###   ########.fr       */
+/*   Updated: 2025/07/23 12:05:14 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	count_rotate(int position, t_node **stack)
 		count = 0;
 	return (count);
 }
-int	count_rev_rotate(int position, t_node **stack)
+
+int	count_rrotate(int position, t_node **stack)
 {
 	int	count;
 
@@ -33,14 +34,14 @@ int	count_rev_rotate(int position, t_node **stack)
 	return (count);
 }
 
-int	count_rr(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
+int	count_rr(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b)
 {
 	int	ra;
 	int	rb;
 	int	rr;
 
-	ra = count_rotate(position_a, stack_a);
-	rb = count_rotate(position_b, stack_b);
+	ra = count_rotate(pos_a, stack_a);
+	rb = count_rotate(pos_b, stack_b);
 	if (ra > rb)
 		rr = rb;
 	else
@@ -48,36 +49,31 @@ int	count_rr(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
 	return (rr);
 }
 
-int	count_rrr(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
+int	count_rrr(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b)
 {
 	int	rra;
 	int	rrb;
 	int	rrr;
 
-	rra = count_rev_rotate(position_a, stack_a);
-	rrb = count_rev_rotate(position_b, stack_b);
+	rra = count_rrotate(pos_a, stack_a);
+	rrb = count_rrotate(pos_b, stack_b);
 	if (rra > rrb)
 		rrr = rrb;
 	else
 		rrr = rra;
 	return (rrr);
 }
-int	push_cost(int position_a, int position_b, t_node **stack_a, t_node **stack_b)
+
+int	push_cost(int pos_a, int pos_b, t_node **stack_a, t_node **stack_b)
 {
-	int	nb_ra;
-	int	nb_rb;
-	int	nb_rra;
-	int	nb_rrb;
-	int	nb_rr;
-	int	nb_rrr;
+	int	rotate;
+	int	rrotate;
 	int	cost;
 
-	nb_ra = count_rotate(position_a, stack_a) - count_rr(position_a, position_b, stack_a, stack_b);
-	nb_rb = count_rotate(position_b, stack_b) - count_rr(position_a, position_b, stack_a, stack_b);
-	nb_rra = count_rev_rotate(position_a, stack_a) - count_rrr(position_a, position_b, stack_a, stack_b);
-	nb_rrb = count_rev_rotate(position_b, stack_b) - count_rrr(position_a, position_b, stack_a, stack_b);
-	nb_rr = count_rr(position_a, position_b, stack_a, stack_b);
-	nb_rrr = count_rrr(position_a, position_b, stack_a, stack_b);
-	cost = nb_ra + nb_rb + nb_rra + nb_rrb + nb_rr + nb_rrr;
+	rotate = count_rotate(pos_a, stack_a) + count_rotate(pos_b, stack_b)
+		- count_rr(pos_a, pos_b, stack_a, stack_b);
+	rrotate = count_rrotate(pos_a, stack_a) + count_rrotate(pos_b, stack_b)
+		- count_rrr(pos_a, pos_b, stack_a, stack_b);
+	cost = rotate + rrotate;
 	return (cost);
 }

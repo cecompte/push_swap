@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:17:34 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/05 16:06:43 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:22:17 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	is_sorted(t_node **stack)
 {
 	t_node	*current;
-	
+
 	current = *stack;
 	while (current->next)
 	{
@@ -41,6 +41,7 @@ int	count_nodes(t_node	*stack)
 	}
 	return (count);
 }
+
 int	position_max(t_node	**stack)
 {
 	t_node	*current;
@@ -64,6 +65,7 @@ int	position_max(t_node	**stack)
 	}
 	return (position);
 }
+
 int	position_min(t_node **stack)
 {
 	t_node	*current;
@@ -87,6 +89,7 @@ int	position_min(t_node **stack)
 	}
 	return (position);
 }
+
 t_node	*find_node(int position, t_node **stack)
 {
 	int		i;

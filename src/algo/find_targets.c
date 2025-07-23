@@ -6,13 +6,13 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 15:47:09 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/05 17:37:09 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:33:43 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_target_max(int number, t_node **stack)
+int	target_max(int number, t_node **stack)
 {
 	t_node	*current;
 	int		position;
@@ -37,7 +37,8 @@ int	find_target_max(int number, t_node **stack)
 	}
 	return (target);
 }
-int	find_target_min(int number, t_node **stack)
+
+int	target_min(int number, t_node **stack)
 {
 	t_node	*current;
 	int		position;
@@ -65,7 +66,6 @@ int	find_target_min(int number, t_node **stack)
 
 void	put_target_top(int position, t_node **stack)
 {
-
 	if (position > count_nodes(*stack) / 2)
 	{
 		while (position != count_nodes(*stack))
@@ -84,4 +84,3 @@ void	put_target_top(int position, t_node **stack)
 		}
 	}
 }
-
