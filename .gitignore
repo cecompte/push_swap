@@ -2,3 +2,5 @@
 *.d
 libft.a
 push_swap
+checker
+foo
