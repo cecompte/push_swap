@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:05:44 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/23 12:12:31 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/24 11:28:50 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ typedef struct s_operations
 }	t_operations;
 
 //utils
-char	**ps_split(char *str);
-int		ps_atoi(const char *nptr);
+long	ps_atoi(const char *nptr);
 int		ps_strlen(char **tab);
 void	exit_error(t_node **stack);
 void	lstclear(t_node **lst);
@@ -43,7 +42,6 @@ void	free_tab(char **tab);
 
 //init_stack
 int		check_valid_nb(char *str);
-int		no_duplicates(int num, t_node **head);
 t_node	*init_stack(t_node **stack, int argc, char **argv);
 void	print_stack(t_node *stack);
 

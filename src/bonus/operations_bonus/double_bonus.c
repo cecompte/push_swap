@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   double_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 12:01:25 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/23 16:52:44 by cecompte         ###   ########.fr       */
+/*   Created: 2025/07/23 17:39:29 by cecompte          #+#    #+#             */
+/*   Updated: 2025/07/24 14:23:30 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ps_bonus.h"
 
-static void	push(t_node **dest, t_node **source)
+void	double_rotate(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*to_push;
-	t_node	*tmp;
-
-	if (!source)
-		return ;
-	tmp = (*source)->next;
-	to_push = *source;
-	to_push->next = *dest;
-	*dest = to_push;
-	*source = tmp;
+	rotate(stack_a);
+	rotate(stack_b);
 }
 
-void	pb(t_node **stack_b, t_node **stack_a)
+void	double_rrotate(t_node **stack_a, t_node **stack_b)
 {
-	push(stack_b, stack_a);
-	ft_printf("pb\n");
+	rrotate(stack_a);
+	rrotate(stack_b);
 }
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	double_swap(t_node **stack_a, t_node **stack_b)
 {
-	push(stack_a, stack_b);
-	ft_printf("pa\n");
+	swap(*stack_a);
+	swap(*stack_b);
 }

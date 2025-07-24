@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:43:20 by cecompte          #+#    #+#             */
-/*   Updated: 2025/06/21 17:21:56 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/23 14:10:19 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	print_char(va_list arg)
 	x = va_arg(arg, int);
 	return (ft_putchar(x));
 }
+
 int	print_str(va_list args)
 {
 	char	*s;
@@ -44,5 +45,3 @@ int	print_memory(va_list arg)
 	count += putnbr_base(nbr, "0123456789abcdef");
 	return (count);
 }
-
-

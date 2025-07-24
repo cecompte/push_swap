@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_stack.c                                      :+:      :+:    :+:   */
+/*   clear_exit_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:40:45 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/22 16:47:28 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/24 10:52:36 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,16 @@ void	lstclear(t_node **lst)
 void	exit_error(t_node **stack)
 {
 	lstclear(stack);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+void	exit_error_bonus(t_list **list, t_node **stack_a, t_node **stack_b)
+{
+	ft_lstclear(list, free);
+	lstclear(stack_a);
+	lstclear(stack_b);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

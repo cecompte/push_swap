@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:17:34 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/23 11:22:17 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/24 12:05:23 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	is_sorted(t_node **stack)
 {
 	t_node	*current;
 
+	if (!*stack)
+		exit_error(stack);
 	current = *stack;
 	while (current->next)
 	{

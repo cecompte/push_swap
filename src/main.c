@@ -6,21 +6,20 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:57:53 by cecompte          #+#    #+#             */
-/*   Updated: 2025/07/22 16:36:42 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/07/24 12:04:45 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-void	print_stack(t_node *stack)
-{
-	while (stack)
-	{
-		ft_printf("%d\n", stack->number);
-		stack = stack->next;
-	}
-}*/
+// void	print_stack(t_node *stack)
+// {
+// 	while (stack)
+// 	{
+// 		ft_printf("%d\n", stack->number);
+// 		stack = stack->next;
+// 	}
+// }
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
